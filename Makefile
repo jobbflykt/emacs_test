@@ -18,5 +18,5 @@ lisp: $(ELCS)
 
 test:
 	$(BATCH) --eval "(progn \
-	(load-file \"$(TOP)/emacs_test.el\")\
+	(load-file \"$(TOP)/test_emacs_test.el\")\
 	(ert-run-tests-batch-and-exit))"

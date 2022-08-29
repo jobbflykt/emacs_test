@@ -6,11 +6,11 @@ jobs:
     strategy:
       matrix:
         emacs_version:
-        - 25.3
-        - 26.3
-        - 27.2
+        # - 25.3
+        # - 26.3
+        # - 27.2
         - 28.1
-        - snapshot
+        # - snapshot
     steps:
     - name: Install emacs
       uses: purcell/setup-emacs@master
