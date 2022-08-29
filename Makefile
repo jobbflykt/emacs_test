@@ -22,3 +22,4 @@ test:
 	  (message \"%s\" (emacs-version)) \
 	  (load-file \"$(TOP)/test_emacs_test.el\") \
 	  (ert-run-tests-batch-and-exit))"
+	openssl version
