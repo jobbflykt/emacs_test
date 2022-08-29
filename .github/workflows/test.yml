@@ -1,0 +1,27 @@
+name: test
+on: [ push, pull_request ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs_version:
+        - 25.3
+        - 26.3
+        - 27.2
+        - 28.1
+        - snapshot
+    steps:
+    - name: Install emacs
+      uses: purcell/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs_version }}
+    - name: Checkout emacs_test
+      uses: actions/checkout@v2
+      with:
+        repository: jobbflykt/emacs_test
+        path: emacs_test
+    - name: Build emacs_test
+      run: make -C emacs_test lisp
+    - name: Test emacs_test
+      run: make -C emacs_test test
