@@ -17,6 +17,8 @@ lisp: $(ELCS)
 	-f batch-byte-compile $<
 
 test:
-	$(BATCH) --eval "(progn \
-	(load-file \"$(TOP)/test_emacs_test.el\")\
-	(ert-run-tests-batch-and-exit))"
+	$(BATCH) --eval "\
+	(progn \
+	  (message \"%s\" (emacs-version)) \
+	  (load-file \"$(TOP)/test_emacs_test.el\") \
+	  (ert-run-tests-batch-and-exit))"
