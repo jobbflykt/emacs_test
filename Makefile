@@ -2,6 +2,11 @@
 
 all: lisp
 
+TOP := .
+LOAD_PATH = -L $(TOP)
+EMACS ?= emacs
+BATCH = $(EMACS) -Q --batch $(LOAD_PATH)
+
 ELS = emacs_test.el
 ELCS = $(ELS:.el=.elc)
 
